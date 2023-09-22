@@ -1,11 +1,11 @@
 package com.uni_testing.demo;
 
 public class Car {
-	private long id;
+	private Long id;
 	private String brand;
 	private String model;
 	private String year;
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(long id) {
