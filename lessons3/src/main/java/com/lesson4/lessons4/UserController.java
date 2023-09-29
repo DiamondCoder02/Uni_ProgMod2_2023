@@ -29,12 +29,13 @@ public class UserController {
 	}
 
 	private Long generateUserId(){
-		return (long) (userList.size() + 1);
+		return userList.stream().mapToLong(User::getId).max().orElse(0) + 1;
 	}
 
 	@ExceptionHandler(NullPointerException.class)
 	private ResponseEntity<?> handleNullPointerException(NullPointerException e, HttpServletRequest request) {
 		ErrorResponses errorResponses = new ErrorResponses(
+			null, 
 			HttpStatus.BAD_REQUEST.value(),
 			HttpStatus.BAD_REQUEST.getReasonPhrase(),
 			e.getMessage(),
