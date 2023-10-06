@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Naplozas {
+public class LoggingUserAPI {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Naplozas.class, args);
+		SpringApplication.run(LoggingUserAPI.class, args);
 	}
 
 }

@@ -5,11 +5,8 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.PutExchange;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -32,6 +29,11 @@ public class UserController {
 		return userList.stream().mapToLong(User::getId).max().orElse(0) + 1;
 	}
 
+	@PutExchange("/{id}")
+	public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable Long id) {
+		return null;
+	}
+
 	@ExceptionHandler(NullPointerException.class)
 	private ResponseEntity<?> handleNullPointerException(NullPointerException e, HttpServletRequest request) {
 		ErrorResponses errorResponses = new ErrorResponses(
@@ -42,5 +44,9 @@ public class UserController {
 			request.getRequestURI()
 		);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponses);
+	}
+
+	private User getUserById(Long id) {
+		return userList.stream().filter(user -> user.getId().equals(id)).findFirst().orElse(null);
 	}
 }
