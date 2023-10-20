@@ -30,7 +30,7 @@ public class LoggingAspectUpdateUser {
     @AfterReturning(pointcut = "execution(* com.lesson7.TodoController.updateTodo(..)) && args(itemId, ..)", returning = "response", argNames = "response,itemId")
     public void logAfterModifyItem(ResponseEntity<Todo> response, Long itemId) {
         Todo user = response.getBody();
-        log.info("Task with ID={} updated: [name: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
+        log.info("\nTask with ID={} updated: \n[name: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
             Objects.requireNonNull(user).getId(), user.getName(), user.getDescription(), user.getDeadline(), user.getPriority(), user.getCreatorName());
     }
 }

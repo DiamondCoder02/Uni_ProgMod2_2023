@@ -23,7 +23,7 @@ public class LoggingAspectGetUser {
     @AfterReturning(pointcut = "execution(* com.lesson7.TodoController.getTask(Long)) && args(itemId)", returning = "response", argNames = "itemId,response")
     public void logAfterGetUser(Long itemId, ResponseEntity<Todo> response) {
         Todo user = response.getBody();
-        log.info("Task with ID={} found: [name: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
+        log.info("\nTask with ID={} found: \n[name: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
             Objects.requireNonNull(user).getId(), user.getName(), user.getDescription(), user.getDeadline(), user.getPriority(), user.getCreatorName());
     }
 }

@@ -30,7 +30,7 @@ public class LoggingAspectCreateTodo {
     @AfterReturning(pointcut = "execution(* com.lesson7.TodoController.CreateTodo(..))", returning = "result")
     public void logAfterCreateTodo(ResponseEntity<Todo> result) {
         Todo toDo = result.getBody();
-        log.info("Todo added: [ID={} | name: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
+        log.info("\nTodo added: [ID={} | \nname: '{}', Description: '{}', Deadline: '{}', Priority: '{}', Creator Name: '{}']", 
             Objects.requireNonNull(toDo).getId(), toDo.getName(), toDo.getDescription(), toDo.getDeadline(), toDo.getPriority(), toDo.getCreatorName());
     }
 }

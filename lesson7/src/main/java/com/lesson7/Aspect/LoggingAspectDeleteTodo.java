@@ -21,7 +21,7 @@ public class LoggingAspectDeleteTodo {
     @AfterReturning(pointcut = "execution(* com.lesson7.TodoController.deleteTodo(Long)) && args(itemId)", returning = "result", argNames = "itemId,result")
     public void logAfterDeleteUser(Long itemId, Object result) {
         if (result != null) {
-            log.info("Task with ID={} got deleted", itemId);
+            log.info("\nTask with ID={} got deleted", itemId);
         }
     }
 }
