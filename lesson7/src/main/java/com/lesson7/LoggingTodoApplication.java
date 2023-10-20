@@ -8,6 +8,7 @@ package com.lesson7;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// Let's start here
 @SpringBootApplication
 public class LoggingTodoApplication {
     public static void main(String[] args) {

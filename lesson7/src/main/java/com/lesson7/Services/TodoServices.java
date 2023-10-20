@@ -13,4 +13,6 @@ public interface TodoServices {
     Todo updateTaskById(Long id, Todo updatedTask);
 
     void deleteTaskById(Long id);
+
+    Todo GetAllPriorityOneTasks();
 }

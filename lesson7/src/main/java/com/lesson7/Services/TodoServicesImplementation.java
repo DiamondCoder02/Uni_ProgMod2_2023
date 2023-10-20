@@ -64,4 +64,12 @@ public class TodoServicesImplementation implements TodoServices {
             return new TodoNotFoundException(errorMessage);
         });
     }
+
+    @Override
+    public Todo GetAllPriorityOneTasks() {
+        return todos.stream().filter(todo -> todo.getPriority().equals(1)).findFirst().orElseThrow(() -> {
+            log.error("There are no priority one tasks");
+            return new TodoNotFoundException("There are no priority one tasks");
+        });
+    }
 }

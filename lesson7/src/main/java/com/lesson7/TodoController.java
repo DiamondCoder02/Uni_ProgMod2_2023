@@ -49,4 +49,10 @@ public class TodoController {
         todoServices.deleteTaskById(id);
         return ResponseEntity.ok(todoServices.findAllTasks());
     }
+
+	// Get all priority 1 tasks
+	@GetMapping("/urgent")
+	public ResponseEntity<Todo> getAllPriorityOneTasks() {
+		return ResponseEntity.ok(todoServices.GetAllPriorityOneTasks());
+	}
 }
