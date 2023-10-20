@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     public String handleValidationException(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
         List<FieldError> fieldErrors = result.getFieldErrors();
-        StringBuilder errorMessage = new StringBuilder("We couldn't verify the foloowing lines:\n");
+        StringBuilder errorMessage = new StringBuilder("We couldn't verify the following lines:\n");
         fieldErrors.forEach(fieldError -> errorMessage.append(fieldError.getField()).append(" (").append(fieldError.getDefaultMessage()).append(")\n"));
         errorMessage.delete(errorMessage.length() - 1, errorMessage.length());
         log.error(errorMessage.toString());
