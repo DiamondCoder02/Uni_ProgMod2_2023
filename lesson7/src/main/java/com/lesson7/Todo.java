@@ -1,32 +1,27 @@
 package com.lesson7;
 
-import java.sql.Date;
-
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-// import jakarta.validation.constraints.DecimalMax;
-import jakarta.validation.constraints.Size;
 
 public class Todo {
     private Long id;
     @NotNull(message = "Name cannot be null")
     @NotBlank(message = "Name cannot be blank")
-    private Long name;
+    private String name;
     @NotNull(message = "Description cannot be null")
     @NotBlank(message = "Description cannot be blank")
-    private Long description;
+    private String description;
     @NotNull(message = "Date cannot be null")
     @NotBlank(message = "Date cannot be blank")
-    @Future(message = "Date cannot be in the past")
-    private Date deadline;
-    @NotNull(message = "Priority cannot be null")
-    @NotBlank(message = "Priority cannot be blank")
-    @Size(min = 1, max = 9, message = "Priority must be between 1 and 9")
+    private String deadline;
+    @Min(value = 1, message = "Priority must be greater than 0")
+    @Max(value = 9, message = "Priority must be less than 10")
     private Integer priority;
     @NotNull(message = "Creator name cannot be null")
     @NotBlank(message = "Creator name cannot be blank")
-    private Long creatorName;
+    private String creatorName;
 
     public Long getId() {
         return id;
@@ -35,22 +30,22 @@ public class Todo {
         this.id = id;
     }
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
-    public Long getDescription() {
+    public String getDescription() {
         return description;
     }
-    public void setDescription(Long description) {
+    public void setDescription(String description) {
         this.description = description;
     }
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
     public Integer getPriority() {
@@ -59,10 +54,10 @@ public class Todo {
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
-    public Long getCreatorName() {
+    public String getCreatorName() {
         return creatorName;
     }
-    public void setCreatorName(Long creatorName) {
+    public void setCreatorName(String creatorName) {
         this.creatorName = creatorName;
     }
 }
