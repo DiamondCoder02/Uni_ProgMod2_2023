@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/tasks")
 @Validated
+// This class is used to handle requests
+// Everything that comes to the server will be handled here and sent to the services
 public class TodoController {
     @Autowired
     private TodoServices todoServices;

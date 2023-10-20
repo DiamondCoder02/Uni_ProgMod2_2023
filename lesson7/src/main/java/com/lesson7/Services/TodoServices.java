@@ -2,6 +2,7 @@ package com.lesson7.Services;
 
 import com.lesson7.Todo;
 
+// This interface is implemented in TodoServicesImplementation.java
 public interface TodoServices {
 	Object findAllTasks();
 

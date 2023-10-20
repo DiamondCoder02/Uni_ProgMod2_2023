@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// This class is used to handle exceptions
+// If any exception occurs, it will be handled by this class
 @RestControllerAdvice
 @Slf4j(topic = "fileLogger")
 public class GlobalExceptionHandler {
