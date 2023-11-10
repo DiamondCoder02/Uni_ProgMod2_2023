@@ -12,7 +12,6 @@ public class LaptopComputer extends Computer{
 		System.out.println("Processor: " + getProcessor());
 		System.out.println("RAM Size: " + getRamSize());
 		System.out.println("Storage Size: " + getStorageSize());
-		throw new UnsupportedOperationException("Unimplemented method 'displayConfiguration'");
 	}
 	
 }
